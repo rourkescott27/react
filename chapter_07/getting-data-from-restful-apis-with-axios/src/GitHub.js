@@ -1,19 +1,30 @@
 import React, { Component } from "react";
 import axios from 'axios';
 import ReactLoading from 'react-loading';
-import { Media, Form, FormGroup, FormControl, Button } from 'react-bootstrap'; 
+import { Media, Form, Button } from 'react-bootstrap';
 
 class GitHub extends Component {
     constructor() {
         super();
         this.state = {
             data: [],
-            isLoading: true
+            searchTerm: '',
+            isLoading: false,
         }
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    componentDidMount() {
-        this.getGitHubData('greg');
+    handleSubmit(e) {
+        e.preventDefault();
+        this.setState({
+            isLoading: true
+        });
+        this.getGitHubData(this.state.searchTerm);
+    }
+
+    handleChange(e) {
+        this.setState({searchTerm: e.target.value})
     }
 
     getGitHubData(_searchTerm) {
@@ -47,6 +58,20 @@ class GitHub extends Component {
         );
         return (
             <div>
+                <Form inline onSubmit={this.handleSubmit}>
+                    <Form.Group controlId="formInlineName">
+                        <Form.Control
+                            type="text"
+                            value={this.state.searchTerm}
+                            placeholder="Enter Search Term"
+                            onChange={this.handleChange}
+                        />
+                    </Form.Group>
+                    {' '}
+                    <Button type="submit">
+                        Search
+                    </Button>
+                </Form>
                 <h3>GitHub User Results</h3>
                 {this.setState.isLoading &&
                     <ReactLoading type="spinningBubbles" color="444" />
