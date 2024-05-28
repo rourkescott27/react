@@ -38,10 +38,10 @@ class Header extends Component {
           </Navbar>
 
           <Routes>
+            <Route path="/github/user/:login/:id" element={<GitHubUser />} />
             <Route path="/github" element={<GitHub />} />
             <Route path="/about" element={<About />} />
             <Route exact path="/" element={<Home />} />
-            <Route path="/github/user/:login/:id" element={<GitHubUser />} />
             <Route path="/*" element={<NotFound />} />
           </Routes>
         </div>

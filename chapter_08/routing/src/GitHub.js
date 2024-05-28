@@ -24,7 +24,7 @@ class GitHub extends Component {
     }
 
     handleChange(e) {
-        this.setState({searchTerm: e.target.value})
+        this.setState({ searchTerm: e.target.value })
     }
 
     getGitHubData(_searchTerm) {
@@ -41,15 +41,17 @@ class GitHub extends Component {
     render() {
         const listUsers = this.state.data.map((user) =>
             <Media key={user.id}>
-                <a href={user.html_url}>
-                    <img
-                        width={64}
-                        height={64}
-                        className="mr-3"
-                        src={user.avatar_url}
-                        alt="Generic placeholder"
-                    />
-                </a>
+                <Nav.Link href={`/github/user/${user.login}/${user.id}`}>
+                    <a href={user.html_url}>
+                        <img
+                            width={64}
+                            height={64}
+                            className="mr-3"
+                            src={user.avatar_url}
+                            alt="Generic placeholder"
+                        />
+                    </a>
+                </Nav.Link>
                 <Media.Body>
                     <h5>Login: {user.login}</h5>
                     <p>Id: {user.id}</p>
