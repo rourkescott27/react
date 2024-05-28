@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Nav, Navbar } from 'react-bootstrap';
+import GitHubUser from "./GitHubUser";
 
 
 class App extends Component {
@@ -40,6 +41,7 @@ class Header extends Component {
             <Route path="/github" element={<GitHub />} />
             <Route path="/about" element={<About />} />
             <Route exact path="/" element={<Home />} />
+            <Route path="/github/user/:login/:id" element={<GitHubUser />} />
             <Route path="/*" element={<NotFound />} />
           </Routes>
         </div>
