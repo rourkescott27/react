@@ -26,7 +26,7 @@ class Header extends Component {
       <BrowserRouter>
         <div>
           <Navbar bg="light" expand="lg">
-            <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+            <Navbar.Brand href="#home">GitHub User Search</Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="mr-auto">
@@ -64,7 +64,7 @@ class NotFound extends Component {
   render() {
     return (
       <div>
-        Not Found
+        <h1>Page Not Found</h1>
       </div >
     );
   }

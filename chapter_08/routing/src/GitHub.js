@@ -42,7 +42,6 @@ class GitHub extends Component {
         const listUsers = this.state.data.map((user) =>
             <Media key={user.id}>
                 <Nav.Link href={`/github/user/${user.login}/${user.id}`}>
-                    <a href={user.html_url}>
                         <img
                             width={64}
                             height={64}
@@ -50,7 +49,6 @@ class GitHub extends Component {
                             src={user.avatar_url}
                             alt="Generic placeholder"
                         />
-                    </a>
                 </Nav.Link>
                 <Media.Body>
                     <h5>Login: {user.login}</h5>
@@ -74,9 +72,9 @@ class GitHub extends Component {
                         Search
                     </Button>
                 </Form>
-                <h3>GitHub User Results</h3>
-                {this.setState.isLoading &&
-                    <ReactLoading type="spinningBubbles" color="444" />
+                <div>GitHub User Results</div>
+                {this.state.isLoading &&
+                    <ReactLoading type="spinningBubbles" color="#444" />
                 }
                 {listUsers}
             </div>
